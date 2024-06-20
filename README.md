@@ -29,14 +29,14 @@ begin
     var i: Integer;
     begin
         for i := 1 to 1000 do
-            ConsoleProgressBar(i, 1000, 1); // runs in line 1
+            ConsoleProgressBar(i, 1000, 1); // runs at line 1
     end);
 
     Task2 := TTask.Create(procedure 
     var i: Integer;
     begin
         for i := 1 to 2000 do
-            ConsoleProgressBar(i, 2000, 2); // runs in line 2
+            ConsoleProgressBar(i, 2000, 2); // runs at line 2
     end);
 
     //Other tasks...
@@ -54,5 +54,3 @@ Result:
   ConsoleBarWidth := 50;
   ConsoleBarChar := '#';
 ```
-
-This project is aimed on education purposes. <br>
