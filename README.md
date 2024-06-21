@@ -1,4 +1,4 @@
-## ⌛ Concurrent Progress Bars 
+## ⌛ Stacked Progress Bars 
 
 Simplified implementation of stacked progress bars for a console application.
 
