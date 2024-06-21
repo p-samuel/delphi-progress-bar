@@ -1,6 +1,6 @@
 ## ⌛ Concurrent Progress Bars 
 
-Simplified implementation of concurrent progress bars for a console application.
+Simplified implementation of stacked progress bars for a console application.
 
 ``` pascal
 uses
@@ -14,7 +14,7 @@ begin
 end;
 ```
 
-You can use concurrent progress bars as long as you specify different line locations for them.
+You can use stacked progress bars as long as you specify different line locations for them.
 
 ``` pascal
 uses
