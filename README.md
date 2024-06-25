@@ -48,7 +48,7 @@ Result:
 
 ![alt text](image.png)
 
-## Bar length and char customization:
+## Bar width and char customization:
 
 ``` pascal
   ConsoleBarWidth := 50;
