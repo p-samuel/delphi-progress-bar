@@ -8,6 +8,7 @@ uses
   System.SysUtils,
   System.Math,
   System.Threading,
+  Winapi.Windows,
   Console.ProgressBar in 'src\Console.ProgressBar.pas';
 
 var
@@ -18,11 +19,15 @@ var
 begin
   while True do
   begin
+
+    SetConsoleOutputCP(CP_UTF8);
     Write('Ready to start tasks? (Y)');
     ReadLn(Input);
 
     if Input = 'Y' then
     begin
+
+      HideConsoleCursor;
       WriteLn;
       Total1 := 400;
       Task1 := TTask.Create(procedure
@@ -30,7 +35,7 @@ begin
       begin
         for i := 1 to Total1 do
         begin
-          ConsoleProgressBar(i, Total1, 2);
+          ConsoleProgressBar(i, Total1, 2, 'Hmmr', '🔨');
           Sleep(11);
         end;
       end);
@@ -41,7 +46,7 @@ begin
       begin
         for i := 1 to Total2 do
         begin
-          ConsoleProgressBar(i, Total2, 3);
+          ConsoleProgressBar(i, Total2, 3, 'Gear', '⚙ ', 11);
           Sleep(5);
         end;
       end);
@@ -52,7 +57,7 @@ begin
       begin
         for i := 1 to Total3 do
         begin
-          ConsoleProgressBar(i, Total3, 4);
+          ConsoleProgressBar(i, Total3, 4, 'Sign', '☢ ', 92, 50, False, 59);
           Sleep(7);
         end;
       end);
@@ -63,7 +68,7 @@ begin
       begin
         for i := 1 to Total4 do
         begin
-          ConsoleProgressBar(i, Total4, 5);
+          ConsoleProgressBar(i, Total4, 5, 'Brck', '🧱', 123, 18, False, 59);
           Sleep(2);
         end;
       end);
@@ -74,7 +79,7 @@ begin
       begin
         for i := 1 to Total5 do
         begin
-          ConsoleProgressBar(i, Total5, 6);
+          ConsoleProgressBar(i, Total5, 6, 'Work', '👷', 79);
           Sleep(4);
         end;
       end);
@@ -85,7 +90,7 @@ begin
       begin
         for i := 1 to Total6 do
         begin
-          ConsoleProgressBar(i, Total6, 7);
+          ConsoleProgressBar(i, Total6, 7, 'Bomb', '💣', 202);
           Sleep(13);
         end;
       end);
@@ -102,6 +107,7 @@ begin
       Task4.Wait;
       Task5.Wait;
       Task6.Wait;
+      ShowConsoleCursor;
 
       ConsolePosition(8);
       ReadLn;
