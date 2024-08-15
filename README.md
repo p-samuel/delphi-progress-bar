@@ -1,90 +1,44 @@
 ## ⌛ Stacked Progress Bars 
 
 Simplified implementation of stacked progress bars for a console application.
-![alt text](assets/image.png)
+![alt text](assets/animation.gif)
 
 ``` pascal
-uses
-    Console.ProgressBar;
+uses Console.ProgressBar;
 
-begin
-    Line := 1; //Progress bar location in the console window. 
-    Total := 1000; //Progress bar length
-    for i := 0 to Total do
-        ConsoleProgressBar(i, Total, Line);
-end;
+Line := 1; 
+Total := 1000; 
+for i := 0 to Total do
+    ConsoleProgressBar(i, Total, Line);
 ```
 
 ### 📚 Basic stacked bars
 You can use stacked bars as long as you place them at different lines.
 ``` pascal
-uses
-    System.Threading,
-    Console.ProgressBar;
+uses Console.ProgressBar;
 
-var
-    Task1, Task2: ITask;
+for i := 1 to 1000 do
+    ConsoleProgressBar(i, 1000, 1); // runs at line 1
+    
+for i := 1 to 2000 do
+    ConsoleProgressBar(i, 2000, 2); // runs at line 2
 
-begin
-    Task1 := TTask.Create(procedure 
-    var i: Integer;
-    begin
-        for i := 1 to 1000 do
-            ConsoleProgressBar(i, 1000, 1); // runs at line 1
-    end);
-
-    Task2 := TTask.Create(procedure 
-    var i: Integer;
-    begin
-        for i := 1 to 2000 do
-            ConsoleProgressBar(i, 2000, 2); // runs at line 2
-    end);
-
-    //Other tasks & bars...
-
-end;
 ```
 ### ⚙ Advanced options
 
 ``` pascal
-uses
-    System.Threading,
-    Console.ProgressBar;
-
-var
-    Task1, Task2: ITask;
-
-begin
-
-    Task1 := TTask.Create(procedure 
-    var i: Integer;
-    begin
-        Total := 1000;
-        for i := 1 to Total do
-            ConsoleProgressBar(i, Total, 1, 'Test', '🔨'); //With Title and Emoji
-    end);
-
-    Task2 := TTask.Create(procedure 
-    var i: Integer;
-    begin
-        Total := 2000;
-        for i := 1 to Total do
-            ConsoleProgressBar(
-                i,     
-                Total, 
-                2,          // line
-                'Sign',     // label
-                '☢',       // emoji
-                92,         // foreground bar color
-                50,         // background bar color
-                False,      // show progress label
-                59          // customized dynamic size
-            );
-    end);
-
-    //Other tasks...
-
-end;
+ ConsoleProgressBar(
+    i,     
+    Total, 
+    2,          
+    'Sign',     // label
+    '☢',       // emoji
+    False,      // progress indicator
+    92,         // foreground bar color
+    50,         // background bar color
+    59          // customized dynamic size
+    '='         // custom bar char
+);
 ```
 ### 📏 Bar length and char customization:
 

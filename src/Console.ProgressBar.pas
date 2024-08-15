@@ -6,10 +6,11 @@ procedure ConsoleProgressBar(
   CurrentValue, Total, Line: Integer;
   const Title: String = '';
   const Emoji: String = '';
+  const ShowProgressLabel: Boolean = True;
   const BarColor: Integer = 0;
   const BarBackgroundColor: Integer = 0;
-  const ShowProgressLabel: Boolean = True;
-  const CustomBarWidth:Integer = 0);
+  const CustomBarWidth:Integer = 0;
+  const CustomBarChar: String = '');
 
 procedure ConsolePosition(Line: Integer);
 procedure ShowConsoleCursor;
@@ -62,17 +63,30 @@ procedure ConsoleProgressBar(
   CurrentValue, Total, Line: Integer;
   const Title: String = '';
   const Emoji: String = '';
+  const ShowProgressLabel: Boolean = True;
   const BarColor: Integer = 0;
   const BarBackgroundColor: Integer = 0;
-  const ShowProgressLabel: Boolean = True;
-  const CustomBarWidth:Integer = 0);
+  const CustomBarWidth:Integer = 0;
+  const CustomBarChar: String = '');
 var
-  Tick, ProgressedTicks: Integer;
+  BarWidth, Tick, ProgressedTicks: Integer;
   Percentage: Double;
+  BarChar: String;
 begin
+
+  if CustomBarWidth > 0  then
+    BarWidth := CustomBarWidth
+  else
+    BarWidth := ConsoleBarWidth;
+
+  if CustomBarChar <> '' then
+    BarChar := CustomBarChar
+  else
+    BarChar := ConsoleBarChar;
+
   SetConsoleOutputCP(CP_UTF8);
   Percentage := CurrentValue / Total;
-  ProgressedTicks := Round(Percentage * Max(ConsoleBarWidth, CustomBarWidth));
+  ProgressedTicks := Round(Percentage * BarWidth);
   TMonitor.Enter(ConsoleLock);
   try
     GotoXY(1, Line);
@@ -88,7 +102,7 @@ begin
 
     Write('[');
 
-    for Tick := 1 to Max(ConsoleBarWidth, CustomBarWidth) do
+    for Tick := 1 to BarWidth do
       if Tick <= ProgressedTicks then
       begin
 
@@ -98,13 +112,16 @@ begin
         if BarBackgroundColor > 0 then
           Write(#27+Format('[48;5;%dm', [BarBackgroundColor]));
 
-        Write(ConsoleBarChar);
+        Write(BarChar);
         Write(#27'[0m');
       end
       else
         Write(' ');
 
-    Write(Format('] %.2f%%', [Percentage * 100]));
+    Write('] ');
+
+    if ShowProgressLabel then
+      Write(Format('%.2f%%', [Percentage * 100]));
 
   finally
     TMonitor.Exit(ConsoleLock);
