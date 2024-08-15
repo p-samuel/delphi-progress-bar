@@ -16,7 +16,7 @@ end;
 ```
 
 ### 📚 Basic stacked bars
-You can use stacked bars as long as you specify different lines for them.
+You can use stacked bars as long as you place them at different lines.
 ``` pascal
 uses
     System.Threading,
@@ -86,7 +86,7 @@ begin
 
 end;
 ```
-### 📏 Bar's length and char customization:
+### 📏 Bar length and char customization:
 
 ``` pascal
   ConsoleBarWidth := 50;
@@ -94,12 +94,12 @@ end;
 ```
 
 ### 🎨 Foreground and backgroud colors
-The bar's foreground and background colors can follow the index from 0 to 255 as shown in this table. More advanced options can be found [here](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797).
+Foreground and background colors can follow the index from 0 to 255 as shown in this table. 
 
 ![alt text](assets/color-codes.png)
 _Source: https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797_
 
 ### 📌 Summary
-This project is aimed on education purposes. It will not work if the console does not support utf-8 or advanced ascii escape sequences. There are other issues which haven't been addressed (yet), so it might also not properly work under all scenarios of a console app.<br>
+This project is aimed on education purposes. It will not work if the console does not support utf-8 or advanced ascii escape sequences. There are other issues which haven't been addressed (yet), so it might also not properly work under all scenarios of a console app. If you like to play with advanced settings I suggest you to read [this](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797) repository.
 
 
