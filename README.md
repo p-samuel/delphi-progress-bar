@@ -1,6 +1,6 @@
-## ⌛ Concurrent Progress Bars 
+## ⌛ Stacked Progress Bars 
 
-Simplified implementation of concurrent progress bars for a console application.
+Simplified implementation of stacked progress bars for a console application.
 ![alt text](assets/image.png)
 
 ``` pascal
