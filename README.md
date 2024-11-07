@@ -1,6 +1,6 @@
 ## ⌛ Stacked Progress Bars 
 
-Simplified implementation of stacked progress bars for a console application.
+Simplified stacked progress bars implementation for console applications.
 ![alt text](assets/animation.gif)
 
 ``` pascal
@@ -13,7 +13,7 @@ for i := 0 to Total do
 ```
 
 ### Basic stacked bars
-You can use stacked bars as long as you place them at different lines.
+You can use stacked bars as long as you draw them on different lines in the console.
 ``` pascal
 uses Console.ProgressBar;
 
@@ -52,8 +52,5 @@ Foreground and background colors can follow the index from 0 to 255 as shown in 
 
 ![alt text](assets/color-codes.png)
 _Source: https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797_
-
-### Summary
-This project is aimed on education purposes. It will not work if the console does not support utf-8 or advanced ascii escape sequences. There are other issues which haven't been addressed (yet), so it might also not properly work under all scenarios of a console app. If you like to play with advanced settings I suggest you to read [this](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797) repository.
 
 
